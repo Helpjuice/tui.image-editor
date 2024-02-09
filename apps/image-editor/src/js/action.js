@@ -157,7 +157,15 @@ export default {
             if (imageName.split('.').pop() !== type) {
               imageName += `.${type}`;
             }
-            saveAs(blob, imageName); // eslint-disable-line
+
+            // send event to dom
+            var event = new CustomEvent('ImageEditor:Save', {
+              detail: {
+                blob: blob,
+                imageName: imageName,
+              },
+            });
+            document.dispatchEvent(event);
           } else {
             w = window.open();
             w.document.body.innerHTML = `<img src='${dataURL}'>`;

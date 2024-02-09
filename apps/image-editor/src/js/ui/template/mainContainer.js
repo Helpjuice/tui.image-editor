@@ -18,7 +18,7 @@ export default ({
                     <input type="file" class="tui-image-editor-load-btn" />
                 </div>
                 <button class="tui-image-editor-download-btn" style="${downloadButtonStyle}">
-                    ${locale.localize('Download')}
+                    ${locale.localize('Save')}
                 </button>
             </div>
         </div>

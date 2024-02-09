@@ -487,8 +487,13 @@ $btnDownload.on('click', function () {
       imageName += '.' + type;
     }
 
-    // Library: FileSaver - saveAs
-    saveAs(blob, imageName); // eslint-disable-line
+    // Send event to DOM
+    var event = new CustomEvent('ImageEditor:save', {
+      detail: {
+        blob: blob,
+        name: imageName,
+      },
+    });
   } else {
     alert('This browser needs a file-server');
     w = window.open();
